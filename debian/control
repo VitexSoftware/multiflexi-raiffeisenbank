@@ -1,0 +1,26 @@
+Source: multiflexi-raiffeisenbank
+Section: web
+Priority: optional
+Maintainer: "Vítězslav Dvořák" <info@vitexsoftware.cz>
+Build-Depends: debhelper-compat (=13)
+Standards-Version: 4.6.1
+Homepage: https://github.com/VitexSoftware/multiflexi-raiffeisenbank
+Rules-Requires-Root: no
+
+Package: multiflexi-raiffeisenbank
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}, php-vitexsoftware-multiflexi-core, multiflexi-cli (>= 2.2.0)
+Description: MultiFlexi RaiffeisenBank credential prototype
+ RaiffeisenBank Premium API credential prototype for MultiFlexi core.
+ Provides the CredentialProtoType class that defines account number,
+ certificate and API client configuration fields.
+
+Package: multiflexi-raiffeisenbank-ui
+Architecture: all
+Multi-Arch: foreign
+Depends: ${misc:Depends}, multiflexi-raiffeisenbank (= ${binary:Version}), multiflexi-web
+Description: MultiFlexi RaiffeisenBank UI components
+ RaiffeisenBank connection dialog for MultiFlexi web interface.
+ Displays certificate validity, issuer information, rate limits
+ and other technical details in the credential configuration form.
