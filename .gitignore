@@ -10,3 +10,4 @@ debian/files
 debian/tmp/
 debian/multiflexi-raiffeisenbank/
 debian/multiflexi-raiffeisenbank-ui/
+/nbproject/private/
