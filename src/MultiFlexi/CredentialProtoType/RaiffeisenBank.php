@@ -79,23 +79,23 @@ class RaiffeisenBank extends \MultiFlexi\CredentialProtoType implements \MultiFl
         // Implement the configuration form logic if needed
     }
 
-    public static function name(): string
+    public function name(): string
     {
         return _('Raiffeisen Bank');
     }
 
-    public static function description(): string
+    public function description(): string
     {
         return _('Raiffeisen Bank Premium API');
     }
 
-    public static function uuid(): string
+    public function uuid(): string
     {
-        return '6ba7b816-9dad-11d1-80b4-00c04fd430c8';
+        return '8f1193f6-82f6-48d5-a2f7-4c7defce5443';
     }
 
     #[\Override]
-    public static function logo(): string
+    public function logo(): string
     {
         return self::$logo;
     }

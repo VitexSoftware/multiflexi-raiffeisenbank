@@ -10,7 +10,7 @@ Rules-Requires-Root: no
 Package: multiflexi-raiffeisenbank
 Architecture: all
 Multi-Arch: foreign
-Depends: ${misc:Depends}, php-vitexsoftware-multiflexi-core, multiflexi-cli (>= 2.2.0)
+Depends: ${misc:Depends}, php-vitexsoftware-multiflexi-core (>= 2.9), multiflexi-cli (>= 2.2.0)
 Description: MultiFlexi RaiffeisenBank credential prototype
  RaiffeisenBank Premium API credential prototype for MultiFlexi core.
  Provides the CredentialProtoType class that defines account number,
