@@ -11,8 +11,15 @@
       Provides RaiffeisenBank Premium API credential prototype for MultiFlexi core. Defines account number, certificate and API client configuration fields. Includes UI components displaying certificate validity, issuer information, rate limits and other technical details.
     </p>
   </description>
+  <extends>cz.vitexsoftware.multiflexi</extends>
   <url type="homepage">https://github.com/VitexSoftware/multiflexi-raiffeisenbank</url>
   <url type="bugtracker">https://github.com/VitexSoftware/multiflexi-raiffeisenbank/issues</url>
+  <provides>
+    <library>MultiFlexi/CredentialProtoType/RaiffeisenBank.php</library>
+  </provides>
+  <releases>
+    <release version="2.0.0" date="2025-01-01" type="stable" />
+  </releases>
   <developer id="cz.vitexsoftware">
     <name>VitexSoftware</name>
   </developer>
