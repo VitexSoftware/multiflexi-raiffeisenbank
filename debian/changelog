@@ -1,3 +1,10 @@
+multiflexi-raiffeisenbank (2.0.1) unstable; urgency=medium
+
+  * Packaging: AppStream metainfo enhancements, Standards-Version 4.7.0,
+    Jenkinsfile CI improvements
+
+ -- Vítězslav Dvořák <info@vitexsoftware.cz>  Mon, 18 May 2026 16:56:23 +0200
+
 multiflexi-raiffeisenbank (2.0.0) unstable; urgency=medium
 
   [ "Vítězslav Dvořák" ]
