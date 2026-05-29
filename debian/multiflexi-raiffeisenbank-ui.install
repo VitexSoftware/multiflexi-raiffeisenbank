@@ -1,3 +1,2 @@
 src/MultiFlexi/Ui/CredentialType/RaiffeisenBank.php  usr/lib/multiflexi/MultiFlexi/Ui/CredentialType/
-# TODO: remove from multiflexi-web first  src/images/RaiffeisenBank.svg                        usr/share/multiflexi/images/
 src/images/RaiffeisenBank.svg                        usr/share/multiflexi-web/images/
