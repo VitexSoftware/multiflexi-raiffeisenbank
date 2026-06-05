@@ -1,0 +1,73 @@
+{
+  "$schema": "https://raw.githubusercontent.com/VitexSoftware/php-vitexsoftware-multiflexi-core/refs/heads/main/schema/credential-prototype.json",
+  "uuid": "8f1193f6-82f6-48d5-a2f7-4c7defce5443",
+  "code": "RaiffeisenBank",
+  "name": {
+    "en": "Raiffeisen Bank",
+    "cs": "Raiffeisenbank"
+  },
+  "description": {
+    "en": "Raiffeisen Bank Premium API",
+    "cs": "Raiffeisenbank Premium API"
+  },
+  "version": "1.0",
+  "logo": "RaiffeisenBank.svg",
+  "homepage": "https://www.rb.cz/",
+  "tags": [
+    "Raiffeisenbank",
+    "bank",
+    "finance",
+    "API"
+  ],
+  "fields": [
+    {
+      "keyword": "CERT_FILE",
+      "type": "string",
+      "name": {
+        "en": "Certificate file",
+        "cs": "Soubor certifikátu"
+      },
+      "description": {
+        "en": "Path to client certificate file",
+        "cs": "Cesta k souboru certifikátu klienta"
+      },
+      "required": true
+    },
+    {
+      "keyword": "CERT_PASS",
+      "type": "password",
+      "name": {
+        "en": "Certificate password",
+        "cs": "Heslo certifikátu"
+      },
+      "description": {
+        "en": "Client certificate passphrase",
+        "cs": "Heslo klientského certifikátu"
+      },
+      "required": true
+    },
+    {
+      "keyword": "XIBMCLIENTID",
+      "type": "string",
+      "name": "Client ID",
+      "description": {
+        "en": "X-IBM-Client-Id for Raiffeisen Premium API",
+        "cs": "X-IBM-Client-Id pro Raiffeisenbank Premium API"
+      },
+      "required": true
+    },
+    {
+      "keyword": "ACCOUNT_NUMBER",
+      "type": "string",
+      "name": {
+        "en": "Bank Account Number",
+        "cs": "Číslo bankovního účtu"
+      },
+      "description": {
+        "en": "Raiffeisen Bank account number",
+        "cs": "Číslo účtu v Raiffeisenbank"
+      },
+      "required": true
+    }
+  ]
+}
