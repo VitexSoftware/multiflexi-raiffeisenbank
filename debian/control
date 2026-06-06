@@ -20,7 +20,7 @@ Description: MultiFlexi RaiffeisenBank credential prototype
 Package: multiflexi-raiffeisenbank-ui
 Architecture: all
 Multi-Arch: foreign
-Depends: ${misc:Depends}, multiflexi-raiffeisenbank (= ${binary:Version}), multiflexi-web
+Depends: ${misc:Depends}, multiflexi-raiffeisenbank (= ${binary:Version}), multiflexi-web|multiflexi-web5
 Description: MultiFlexi RaiffeisenBank UI components
  RaiffeisenBank connection dialog for MultiFlexi web interface.
  Displays certificate validity, issuer information, rate limits
