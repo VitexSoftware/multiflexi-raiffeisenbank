@@ -1,3 +1,11 @@
+multiflexi-raiffeisenbank (2.1.0) UNRELEASED; urgency=medium
+
+  * RaiffeisenBank prototype: add checkAvailability() — offline certificate
+    validation (openssl_pkcs12_read), rate-limit budget check, returns
+    Misconfigured for bad cert/missing clientId, Available after passing gates
+
+ -- vitex <info@vitexsoftware.cz>  Sat, 14 Jun 2026 12:00:00 +0200
+
 multiflexi-raiffeisenbank (2.0.1) unstable; urgency=medium
 
   * Packaging: AppStream metainfo enhancements, Standards-Version 4.7.0,

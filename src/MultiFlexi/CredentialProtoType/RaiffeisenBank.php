@@ -22,7 +22,7 @@ namespace MultiFlexi\CredentialProtoType;
  *
  * @no-named-arguments
  */
-class RaiffeisenBank extends \MultiFlexi\CredentialProtoType implements \MultiFlexi\credentialTypeInterface
+class RaiffeisenBank extends \MultiFlexi\CredentialProtoType implements \MultiFlexi\credentialTypeInterface, \MultiFlexi\checkableCredentialInterface
 {
     /**
      * Widgets for displaying certificate metadata in the config form.
@@ -98,5 +98,62 @@ class RaiffeisenBank extends \MultiFlexi\CredentialProtoType implements \MultiFl
     public function logo(): string
     {
         return self::$logo;
+    }
+
+    #[\Override]
+    public function checkAvailability(): \MultiFlexi\CredentialCheckResult
+    {
+        $f        = fn (string $c) => (string) ($this->configFieldsInternal->getFieldByCode($c)?->getValue() ?? '');
+        $certFile = $f('CERT_FILE');
+        $certPass = $f('CERT_PASS');
+        $clientId = $f('XIBMCLIENTID');
+
+        // 1) Offline validation
+        if ($clientId === '' || $certFile === '' || !is_readable($certFile)) {
+            return new \MultiFlexi\CredentialCheckResult(
+                \MultiFlexi\CredentialState::Misconfigured,
+                _('Client ID or readable certificate file is missing'),
+                time(),
+            );
+        }
+
+        $certContent = file_get_contents($certFile);
+
+        if ($certContent === false || !openssl_pkcs12_read($certContent, $certs, $certPass)) {
+            return new \MultiFlexi\CredentialCheckResult(
+                \MultiFlexi\CredentialState::Misconfigured,
+                _('Cannot open certificate with the given password'),
+                time(),
+            );
+        }
+
+        // 2) Respect the rate-limit budget — avoid spending a request when exhausted
+        $rateFile = (string) ($this->configFieldsProvided->getFieldByCode('RBAPI_RATE_LIMIT_JSON_FILE')?->getValue() ?? '');
+
+        if ($rateFile !== '' && is_readable($rateFile)) {
+            $rateContent = file_get_contents($rateFile);
+
+            if ($rateContent !== false) {
+                $rates = json_decode($rateContent, true);
+
+                if (isset($rates['remaining']) && (int) $rates['remaining'] <= 0) {
+                    return new \MultiFlexi\CredentialCheckResult(
+                        \MultiFlexi\CredentialState::Available,
+                        _('Rate budget exhausted — assuming available'),
+                        time(),
+                        60,
+                    );
+                }
+            }
+        }
+
+        // 3) Live authenticated call via RB Premium connector (add dependency when available).
+        // Until then, certificate validity is sufficient as a gate.
+        return new \MultiFlexi\CredentialCheckResult(
+            \MultiFlexi\CredentialState::Available,
+            '',
+            time(),
+            300,
+        );
     }
 }
