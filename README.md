@@ -1,4 +1,5 @@
 # multiflexi-raiffeisenbank
+![Packaging: deb](https://img.shields.io/badge/packaging-.deb-red?logo=debian&logoColor=white)
 
 RaiffeisenBank Premium API support for [MultiFlexi](https://multiflexi.eu).
 
