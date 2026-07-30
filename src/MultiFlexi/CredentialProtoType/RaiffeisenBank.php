@@ -54,6 +54,14 @@ class RaiffeisenBank extends \MultiFlexi\CredentialProtoType implements \MultiFl
         $rateFile->setManual(false);
         $this->configFieldsProvided->addField($rateFile);
 
+        $rateWaitMode = new \MultiFlexi\ConfigField('RBAPI_RATE_WAIT_MODE', 'bool', 'RBAPI_RATE_WAIT_MODE', _('If true, wait (bounded by RBAPI_RATE_MAX_WAIT_SECONDS) for the rate-limit window to reset instead of failing immediately'), 'false', 'false');
+        $rateWaitMode->setManual(false);
+        $this->configFieldsProvided->addField($rateWaitMode);
+
+        $rateMaxWait = new \MultiFlexi\ConfigField('RBAPI_RATE_MAX_WAIT_SECONDS', 'integer', 'RBAPI_RATE_MAX_WAIT_SECONDS', _('Longest wait (in seconds) allowed in RBAPI_RATE_WAIT_MODE before giving up instead of blocking the job'), '300', '300');
+        $rateMaxWait->setManual(false);
+        $this->configFieldsProvided->addField($rateMaxWait);
+
         $this->configFieldsInternal->addField($accountNumberField);
         $this->configFieldsInternal->addField($currencyField);
         $this->configFieldsInternal->addField($certFileField);
